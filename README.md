@@ -22,6 +22,8 @@ Aplikasi ShareBite dilengkapi dengan fitur pendaftaran akun pemberi penerima, da
     Jadwalkan waktu pengambilan makanan dan konfirmasikan dengan penerima.
 
 ## Class Diagram
+![Class Diagram ShareBite (Module 2 Homework) drawio](https://github.com/user-attachments/assets/85e4a2a7-5656-4b38-8791-2c65054ba464)
+
 
 
 ### Kontak
