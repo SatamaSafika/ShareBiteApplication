@@ -90,5 +90,10 @@ namespace junpro_test_ui
 
 
         }
+
+        private void login_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
