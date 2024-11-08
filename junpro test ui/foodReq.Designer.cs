@@ -41,9 +41,10 @@
             button1.FlatAppearance.MouseDownBackColor = Color.Transparent;
             button1.FlatAppearance.MouseOverBackColor = Color.Transparent;
             button1.FlatStyle = FlatStyle.Flat;
-            button1.Location = new Point(681, 595);
+            button1.Location = new Point(885, 762);
+            button1.Margin = new Padding(4, 4, 4, 4);
             button1.Name = "button1";
-            button1.Size = new Size(112, 34);
+            button1.Size = new Size(146, 44);
             button1.TabIndex = 0;
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
@@ -52,9 +53,10 @@
             // 
             tbrcname.BackColor = Color.FromArgb(72, 128, 255);
             tbrcname.BorderStyle = BorderStyle.None;
-            tbrcname.Location = new Point(751, 315);
+            tbrcname.Location = new Point(976, 403);
+            tbrcname.Margin = new Padding(4, 4, 4, 4);
             tbrcname.Name = "tbrcname";
-            tbrcname.Size = new Size(301, 24);
+            tbrcname.Size = new Size(391, 32);
             tbrcname.TabIndex = 1;
             tbrcname.TextChanged += textBox1_TextChanged;
             // 
@@ -62,20 +64,22 @@
             // 
             tbqty.BackColor = Color.FromArgb(72, 128, 255);
             tbqty.BorderStyle = BorderStyle.None;
-            tbqty.Location = new Point(751, 400);
+            tbqty.Location = new Point(976, 512);
+            tbqty.Margin = new Padding(4, 4, 4, 4);
             tbqty.Name = "tbqty";
-            tbqty.Size = new Size(301, 24);
+            tbqty.Size = new Size(391, 32);
             tbqty.TabIndex = 2;
             // 
             // foodReq
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-            ClientSize = new Size(1418, 1050);
+            ClientSize = new Size(1414, 1035);
             Controls.Add(tbqty);
             Controls.Add(tbrcname);
             Controls.Add(button1);
+            Margin = new Padding(4, 4, 4, 4);
             Name = "foodReq";
             Text = "Form1";
             ResumeLayout(false);
