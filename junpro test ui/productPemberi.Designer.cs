@@ -43,9 +43,10 @@
             productEdit.FlatAppearance.MouseOverBackColor = Color.Transparent;
             productEdit.FlatStyle = FlatStyle.Flat;
             productEdit.ForeColor = Color.Transparent;
-            productEdit.Location = new Point(1054, 289);
+            productEdit.Location = new Point(1370, 370);
+            productEdit.Margin = new Padding(4, 4, 4, 4);
             productEdit.Name = "productEdit";
-            productEdit.Size = new Size(352, 422);
+            productEdit.Size = new Size(458, 540);
             productEdit.TabIndex = 0;
             productEdit.UseVisualStyleBackColor = false;
             productEdit.Click += productEdit_Click;
@@ -57,9 +58,10 @@
             productPost.FlatAppearance.MouseDownBackColor = Color.Transparent;
             productPost.FlatAppearance.MouseOverBackColor = Color.Transparent;
             productPost.FlatStyle = FlatStyle.Flat;
-            productPost.Location = new Point(1208, 173);
+            productPost.Location = new Point(1570, 221);
+            productPost.Margin = new Padding(4, 4, 4, 4);
             productPost.Name = "productPost";
-            productPost.Size = new Size(165, 46);
+            productPost.Size = new Size(214, 59);
             productPost.TabIndex = 1;
             productPost.UseVisualStyleBackColor = false;
             productPost.Click += productPost_Click;
@@ -72,9 +74,10 @@
             bnLoadData.FlatAppearance.MouseOverBackColor = Color.Transparent;
             bnLoadData.FlatStyle = FlatStyle.Flat;
             bnLoadData.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            bnLoadData.Location = new Point(420, 101);
+            bnLoadData.Location = new Point(546, 129);
+            bnLoadData.Margin = new Padding(4, 4, 4, 4);
             bnLoadData.Name = "bnLoadData";
-            bnLoadData.Size = new Size(52, 46);
+            bnLoadData.Size = new Size(68, 59);
             bnLoadData.TabIndex = 2;
             bnLoadData.UseVisualStyleBackColor = false;
             bnLoadData.Click += bnLoadData_Click;
@@ -82,24 +85,25 @@
             // panelContainer
             // 
             panelContainer.BackColor = Color.Transparent;
-            panelContainer.Location = new Point(262, 278);
+            panelContainer.Location = new Point(238, 282);
+            panelContainer.Margin = new Padding(4, 4, 4, 4);
             panelContainer.Name = "panelContainer";
-            panelContainer.Size = new Size(1158, 760);
+            panelContainer.Size = new Size(1505, 973);
             panelContainer.TabIndex = 3;
             // 
             // productPemberi
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-            ClientSize = new Size(1418, 1050);
+            ClientSize = new Size(1374, 1050);
             Controls.Add(panelContainer);
             Controls.Add(bnLoadData);
             Controls.Add(productPost);
             Controls.Add(productEdit);
+            Margin = new Padding(4, 4, 4, 4);
             Name = "productPemberi";
             Text = "Form1";
-            /*Load += productPemberi_Load_1;*/
             ResumeLayout(false);
         }
 

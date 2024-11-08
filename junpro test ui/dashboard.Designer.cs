@@ -45,7 +45,7 @@
             button1.FlatAppearance.MouseOverBackColor = Color.Transparent;
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Microsoft Tai Le", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.Location = new Point(34, 232);
+            button1.Location = new Point(25, 232);
             button1.Margin = new Padding(4);
             button1.Name = "button1";
             button1.Size = new Size(208, 58);
@@ -61,7 +61,7 @@
             productPemberi.FlatAppearance.MouseDownBackColor = Color.Transparent;
             productPemberi.FlatAppearance.MouseOverBackColor = Color.Transparent;
             productPemberi.FlatStyle = FlatStyle.Flat;
-            productPemberi.Location = new Point(13, 131);
+            productPemberi.Location = new Point(4, 131);
             productPemberi.Margin = new Padding(4);
             productPemberi.Name = "productPemberi";
             productPemberi.Size = new Size(207, 40);
@@ -76,7 +76,7 @@
             btngeneralSetting.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btngeneralSetting.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btngeneralSetting.FlatStyle = FlatStyle.Flat;
-            btngeneralSetting.Location = new Point(21, 885);
+            btngeneralSetting.Location = new Point(12, 885);
             btngeneralSetting.Name = "btngeneralSetting";
             btngeneralSetting.Size = new Size(199, 46);
             btngeneralSetting.TabIndex = 2;
@@ -91,7 +91,7 @@
             button2.FlatAppearance.MouseDownBackColor = Color.Transparent;
             button2.FlatAppearance.MouseOverBackColor = Color.Transparent;
             button2.FlatStyle = FlatStyle.Flat;
-            button2.Location = new Point(21, 182);
+            button2.Location = new Point(12, 182);
             button2.Name = "button2";
             button2.Size = new Size(221, 43);
             button2.TabIndex = 3;

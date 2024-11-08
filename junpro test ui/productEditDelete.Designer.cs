@@ -45,7 +45,7 @@
             txtName.BorderStyle = BorderStyle.None;
             txtName.Font = new Font("Microsoft Tai Le", 8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtName.Location = new Point(953, 230);
-            txtName.Margin = new Padding(4, 4, 4, 4);
+            txtName.Margin = new Padding(4);
             txtName.Name = "txtName";
             txtName.Size = new Size(402, 28);
             txtName.TabIndex = 0;
@@ -54,7 +54,7 @@
             // 
             txtDescription.BorderStyle = BorderStyle.None;
             txtDescription.Location = new Point(953, 334);
-            txtDescription.Margin = new Padding(4, 4, 4, 4);
+            txtDescription.Margin = new Padding(4);
             txtDescription.Multiline = true;
             txtDescription.Name = "txtDescription";
             txtDescription.Size = new Size(745, 192);
@@ -64,7 +64,7 @@
             // 
             txtStock.BorderStyle = BorderStyle.None;
             txtStock.Location = new Point(1104, 591);
-            txtStock.Margin = new Padding(4, 4, 4, 4);
+            txtStock.Margin = new Padding(4);
             txtStock.Name = "txtStock";
             txtStock.Size = new Size(38, 32);
             txtStock.TabIndex = 2;
@@ -74,7 +74,7 @@
             // 
             txtImagePath.BorderStyle = BorderStyle.None;
             txtImagePath.Location = new Point(402, 658);
-            txtImagePath.Margin = new Padding(4, 4, 4, 4);
+            txtImagePath.Margin = new Padding(4);
             txtImagePath.Multiline = true;
             txtImagePath.Name = "txtImagePath";
             txtImagePath.Size = new Size(395, 40);
@@ -84,7 +84,7 @@
             // dtpExpiredDate
             // 
             dtpExpiredDate.Location = new Point(1069, 689);
-            dtpExpiredDate.Margin = new Padding(4, 4, 4, 4);
+            dtpExpiredDate.Margin = new Padding(4);
             dtpExpiredDate.Name = "dtpExpiredDate";
             dtpExpiredDate.Size = new Size(389, 39);
             dtpExpiredDate.TabIndex = 4;
@@ -97,7 +97,7 @@
             btnSave.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnSave.FlatStyle = FlatStyle.Flat;
             btnSave.Location = new Point(1499, 1220);
-            btnSave.Margin = new Padding(4, 4, 4, 4);
+            btnSave.Margin = new Padding(4);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(216, 59);
             btnSave.TabIndex = 5;
@@ -112,7 +112,7 @@
             btnDelete.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnDelete.FlatStyle = FlatStyle.Flat;
             btnDelete.Location = new Point(1225, 1220);
-            btnDelete.Margin = new Padding(4, 4, 4, 4);
+            btnDelete.Margin = new Padding(4);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(199, 59);
             btnDelete.TabIndex = 6;
@@ -127,7 +127,7 @@
             button1.FlatAppearance.MouseOverBackColor = Color.Transparent;
             button1.FlatStyle = FlatStyle.Flat;
             button1.Location = new Point(38, 178);
-            button1.Margin = new Padding(4, 4, 4, 4);
+            button1.Margin = new Padding(4);
             button1.Name = "button1";
             button1.Size = new Size(231, 50);
             button1.TabIndex = 7;
@@ -139,7 +139,7 @@
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-            ClientSize = new Size(1447, 1344);
+            ClientSize = new Size(1374, 1050);
             Controls.Add(button1);
             Controls.Add(btnDelete);
             Controls.Add(btnSave);
@@ -148,9 +148,10 @@
             Controls.Add(txtStock);
             Controls.Add(txtDescription);
             Controls.Add(txtName);
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             Name = "productEditDelete";
             Text = "Form1";
+            Load += productEditDelete_Load;
             ResumeLayout(false);
             PerformLayout();
         }

@@ -86,5 +86,10 @@ namespace junpro_test_ui
             form15.Show();
             this.Close();
         }
+
+        private void productEditDelete_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
