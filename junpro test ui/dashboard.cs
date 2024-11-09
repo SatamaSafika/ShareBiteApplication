@@ -50,5 +50,12 @@ namespace junpro_test_ui
             form15.Show();
             this.Close();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Announcement announce = new Announcement();
+            announce.Show();
+            this.Close();
+        }
     }
 }
