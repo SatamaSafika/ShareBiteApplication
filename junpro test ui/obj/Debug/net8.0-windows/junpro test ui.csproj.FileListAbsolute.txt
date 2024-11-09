@@ -216,3 +216,5 @@ C:\Users\user\Documents\GitHub\ShareBiteApplication\junpro test ui\obj\Debug\net
 C:\Users\user\Documents\GitHub\ShareBiteApplication\junpro test ui\obj\Debug\net8.0-windows\junpro test ui.genruntimeconfig.cache
 C:\Users\user\Documents\GitHub\ShareBiteApplication\junpro test ui\obj\Debug\net8.0-windows\ref\junpro test ui.dll
 C:\Users\user\Documents\GitHub\ShareBiteApplication\junpro test ui\obj\Debug\net8.0-windows\junpro_test_ui.Begin.resources
+C:\Users\user\Documents\GitHub\ShareBiteApplication\junpro test ui\obj\Debug\net8.0-windows\junpro_test_ui.Announcement.resources
+C:\Users\user\Documents\GitHub\ShareBiteApplication\junpro test ui\obj\Debug\net8.0-windows\junpro_test_ui.Inbox.resources
