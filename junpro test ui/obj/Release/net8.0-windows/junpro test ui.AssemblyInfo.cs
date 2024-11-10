@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("junpro test ui")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ae0fdaaef1603711f7f14339d7c061d79754e42a")]
 [assembly: System.Reflection.AssemblyProductAttribute("junpro test ui")]
 [assembly: System.Reflection.AssemblyTitleAttribute("junpro test ui")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

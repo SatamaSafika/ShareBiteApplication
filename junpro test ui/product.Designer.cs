@@ -31,6 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(product));
             buttonMilk = new Button();
             btngeneralSetting = new Button();
+            panelContainer = new Panel();
+            lblName = new Label();
+            lblStock = new Label();
+            panelContainer.SuspendLayout();
             SuspendLayout();
             // 
             // buttonMilk
@@ -62,6 +66,33 @@
             btngeneralSetting.UseVisualStyleBackColor = false;
             btngeneralSetting.Click += btngeneralSetting_Click;
             // 
+            // panelContainer
+            // 
+            panelContainer.BackColor = Color.Transparent;
+            panelContainer.Controls.Add(lblName);
+            panelContainer.Controls.Add(lblStock);
+            panelContainer.Location = new Point(274, 529);
+            panelContainer.Name = "panelContainer";
+            panelContainer.Size = new Size(1160, 527);
+            panelContainer.TabIndex = 2;
+            panelContainer.Paint += panel1_Paint;
+            // 
+            // lblName
+            // 
+            lblName.AutoSize = true;
+            lblName.Location = new Point(29, 344);
+            lblName.Name = "lblName";
+            lblName.Size = new Size(0, 32);
+            lblName.TabIndex = 2;
+            // 
+            // lblStock
+            // 
+            lblStock.AutoSize = true;
+            lblStock.Location = new Point(16, 462);
+            lblStock.Name = "lblStock";
+            lblStock.Size = new Size(0, 32);
+            lblStock.TabIndex = 1;
+            // 
             // product
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
@@ -69,11 +100,15 @@
             BackColor = SystemColors.ControlLightLight;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(1446, 1084);
+            Controls.Add(panelContainer);
             Controls.Add(btngeneralSetting);
             Controls.Add(buttonMilk);
             Margin = new Padding(4);
             Name = "product";
             Text = "Form1";
+            Load += product_Load;
+            panelContainer.ResumeLayout(false);
+            panelContainer.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -81,5 +116,8 @@
 
         private Button buttonMilk;
         private Button btngeneralSetting;
+        private Panel panelContainer;
+        private Label lblStock;
+        private Label lblName;
     }
 }

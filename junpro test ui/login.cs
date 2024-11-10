@@ -91,7 +91,11 @@ namespace junpro_test_ui
 
         }
 
+<<<<<<< HEAD
+        private void tbpassword_TextChanged(object sender, EventArgs e)
+=======
         private void login_Load(object sender, EventArgs e)
+>>>>>>> main
         {
 
         }

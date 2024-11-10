@@ -14,32 +14,34 @@ namespace junpro_test_ui
             _connectionString = ConfigurationManager.ConnectionStrings["MyDatabase"].ConnectionString;
         }
 
-        /*public int InsertProduct(ProductItem product)
+        public int InsertProduct(ProductItem product)
         {
             using (var connection = new NpgsqlConnection(_connectionString))
             {
                 connection.Open();
 
-                using (var command = new NpgsqlCommand("SELECT st_insert(@name, @description, @image, @stock, @expired::date)", connection))
+                // Tambahkan parameter @giver di query SQL
+                using (var command = new NpgsqlCommand("SELECT st_insert(@name, @description, @image, @stock, @expired::date, @giver)", connection))
                 {
                     command.Parameters.AddWithValue("name", product.Name);
                     command.Parameters.AddWithValue("description", product.Description);
                     command.Parameters.AddWithValue("image", product.ImagePath);
                     command.Parameters.AddWithValue("stock", product.Stock);
                     command.Parameters.AddWithValue("expired", product.ExpiredDate.Date);
+                    command.Parameters.AddWithValue("giver", Program.UserSession.LoggedInUsername); // Ambil username dari session
 
                     return (int)command.ExecuteScalar();
                 }
             }
-        }*/
+        }
 
         // Tambahkan di DatabaseHelper.cs
-        /*public ProductItem GetProductById(string productId)
+        public ProductItem GetProductById(string productId)
         {
             using (var connection = new NpgsqlConnection(_connectionString))
             {
                 connection.Open();
-                using (var command = new NpgsqlCommand("SELECT * FROM products WHERE id = @id", connection))
+                using (var command = new NpgsqlCommand("SELECT id_product AS ID, name_product AS Name, description_product AS Description, image_path_product AS ImagePath, stock_product AS Stock, expired_date_product AS ExpiredDate, Giver AS giver FROM product WHERE id_product = @id", connection))
                 {
                     command.Parameters.AddWithValue("id", productId);
 
@@ -54,16 +56,17 @@ namespace junpro_test_ui
                                 Description = reader.GetString(2),
                                 ImagePath = reader.GetString(3),
                                 Stock = reader.GetInt32(4),
-                                ExpiredDate = reader.GetDateTime(5)
+                                ExpiredDate = reader.GetDateTime(5),
+                                Giver = reader.GetString(6)
                             };
                         }
                     }
                 }
             }
             return null;
-        }*/
+        }
 
-        /*public int UpdateProduct(ProductItem product)
+        public int UpdateProduct(ProductItem product)
         {
             using (var connection = new NpgsqlConnection(_connectionString))
             {
@@ -81,9 +84,9 @@ namespace junpro_test_ui
                     return Convert.ToInt32(result);
                 }
             }
-        }*/
+        }
 
-        /* public List<ProductItem> GetProducts()
+        public List<ProductItem> GetProducts()
          {
              List<ProductItem> products = new List<ProductItem>();
              string query = "SELECT * FROM st_select();";
@@ -112,12 +115,48 @@ namespace junpro_test_ui
                  }
              }
              return products;
-         }*/
+         }
 
-        /*public int DeleteProduct(string productId)
+        public List<ProductItem> GetProductsByGiver(string giver)
         {
-            using(var connection = new NpgsqlConnection(_connectionString))
-    {
+            List<ProductItem> products = new List<ProductItem>();
+            string query = "SELECT * FROM product WHERE giver = @giver"; // Query dengan filter giver
+
+            using (var connection = new NpgsqlConnection(_connectionString))
+            {
+                connection.Open();
+                using (var command = new NpgsqlCommand(query, connection))
+                {
+                    // Menggunakan parameter giver
+                    command.Parameters.AddWithValue("giver", giver);
+
+                    using (NpgsqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            ProductItem product = new ProductItem
+                            {
+                                ID = reader["id_product"].ToString(),
+                                Name = reader["name_product"].ToString(),
+                                Description = reader["description_product"].ToString(),
+                                ImagePath = reader["image_path_product"].ToString(),
+                                Stock = Convert.ToInt32(reader["stock_product"]),
+                                ExpiredDate = Convert.ToDateTime(reader["expired_date_product"]),
+                                Giver = reader["giver"].ToString()
+                            };
+                            products.Add(product);
+                        }
+                    }
+                }
+            }
+            return products;
+        }
+
+
+        public int DeleteProduct(string productId)
+        {
+            using (var connection = new NpgsqlConnection(_connectionString))
+            {
                 connection.Open();
                 using (var command = new NpgsqlCommand("SELECT st_delete(@id)", connection)) // Memanggil fungsi st_delete
                 {
@@ -135,7 +174,7 @@ namespace junpro_test_ui
                     }
                 }
             }
-        }*/
+        }
 
         public bool IsUsernameAvailable(string username)
         {
@@ -316,7 +355,7 @@ namespace junpro_test_ui
                 try
                 {
                     connection.Open();
-                    string query = "INSERT INTO request (product_name, giver, receiver, slot, pickup_date, place) VALUES (@product_name, @giver, @receiver, @slot, @pickup_date, @place)";
+                    string query = "INSERT INTO receiver (product_name, giver, receiver, slot, pickup_date, place) VALUES (@product_name, @giver, @receiver, @slot, @pickup_date, @place)";
 
                     using (NpgsqlCommand cmd = new NpgsqlCommand(query, connection))
                     {
@@ -325,12 +364,15 @@ namespace junpro_test_ui
                         cmd.Parameters.AddWithValue("@receiver", receiver);
                         cmd.Parameters.AddWithValue("@slot", slot);
                         cmd.Parameters.AddWithValue("@pickup_date", requestedDate);
-                        cmd.Parameters.AddWithValue("@place", place); // Menambahkan parameter untuk 'place'
+                        cmd.Parameters.AddWithValue("@place", place);
 
                         cmd.ExecuteNonQuery();
                     }
 
-                    MessageBox.Show("Request telah disetujui.");
+                    // Menghapus request dari tabel request setelah persetujuan
+                    DeleteRequest(productName, giver, receiver);
+
+                    MessageBox.Show("Request telah disetujui dan dihapus dari daftar request.");
                 }
                 catch (Exception ex)
                 {
@@ -363,6 +405,97 @@ namespace junpro_test_ui
             }
         }
 
+<<<<<<< HEAD
+        public void InsertRequest(string productName, string giver, string receiver, int slot, DateTime requestDate)
+        {
+            using (NpgsqlConnection connection = new NpgsqlConnection(_connectionString))
+            {
+                connection.Open();
+                string query = "INSERT INTO request (product_name, giver, receiver, slot, requested_date) VALUES (@product_name, @giver, @receiver, @slot, @requested_date)";
+
+                using (NpgsqlCommand cmd = new NpgsqlCommand(query, connection))
+                {
+                    cmd.Parameters.AddWithValue("@product_name", productName);
+                    cmd.Parameters.AddWithValue("@giver", giver);
+                    cmd.Parameters.AddWithValue("@receiver", receiver);
+                    cmd.Parameters.AddWithValue("@slot", slot);
+                    cmd.Parameters.AddWithValue("@requested_date", requestDate);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void DeleteRequest(string productName, string giver, string receiver)
+        {
+            using (NpgsqlConnection connection = new NpgsqlConnection(_connectionString))
+            {
+                connection.Open();
+                string query = "DELETE FROM request WHERE product_name = @product_name AND giver = @giver AND receiver = @receiver";
+
+                using (NpgsqlCommand command = new NpgsqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@product_name", productName);
+                    command.Parameters.AddWithValue("@giver", giver);
+                    command.Parameters.AddWithValue("@receiver", receiver);
+
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+
+        public List<ReceiverItem> GetReceiversByGiver(string giver)
+        {
+            List<ReceiverItem> receivers = new List<ReceiverItem>();
+            string query = "SELECT id, product_name, receiver, slot, pickup_date, place FROM receiver WHERE giver = @giver";
+
+            using (var connection = new NpgsqlConnection(_connectionString))
+            {
+                connection.Open();
+                using (var command = new NpgsqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("giver", giver);
+
+                    using (NpgsqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            ReceiverItem receiver = new ReceiverItem
+                            {
+                                Id = reader.GetInt32(reader.GetOrdinal("id")), // Pastikan ini sesuai tipe datanya
+                                ProductName = reader["product_name"].ToString(),
+                                ReceiverName = reader["receiver"].ToString(),
+                                Slot = Convert.ToInt32(reader["slot"]),
+                                Place = reader["place"].ToString(),
+                                PickupDate = Convert.ToDateTime(reader["pickup_date"])
+                            };
+                            receivers.Add(receiver);
+                        }
+                    }
+                }
+            }
+            return receivers;
+        }
+
+
+        public bool UpdatePickupDate(int id, DateTime newPickupDate)
+        {
+            string query = "UPDATE receiver SET pickup_date = @pickup_date WHERE id = @id"; // Pastikan query sesuai dengan nama kolom
+
+            try
+            {
+                using (var connection = new NpgsqlConnection(_connectionString))
+                {
+                    connection.Open();
+                    using (var command = new NpgsqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@pickup_date", newPickupDate);
+                        command.Parameters.AddWithValue("@id", id);
+
+                        int rowsAffected = command.ExecuteNonQuery();
+                        return rowsAffected > 0;
+=======
         // Method to create an announcement
         public bool CreateAnnouncement(int pemberiId, string content)
         {
@@ -389,19 +522,29 @@ namespace junpro_test_ui
 
                             return true;
                         }
+>>>>>>> main
                     }
                 }
             }
             catch (Exception ex)
             {
+<<<<<<< HEAD
+                MessageBox.Show("Error saat update: " + ex.Message); // Untuk debugging
+                return false;
+            }
+=======
                 Console.WriteLine($"Error creating announcement: {ex.Message}");
                 return false;
             }
             return false;
+>>>>>>> main
         }
 
 
 
+<<<<<<< HEAD
+
+=======
         // Method to notify followers of a new announcement
         private void SendNotificationToFollowers(NpgsqlConnection conn, int pemberiId, int announcementId)
         {
@@ -443,6 +586,7 @@ namespace junpro_test_ui
             }
         }
     
+>>>>>>> main
 
 
 

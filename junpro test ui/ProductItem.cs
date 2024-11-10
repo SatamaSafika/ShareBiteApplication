@@ -13,6 +13,7 @@ namespace junpro_test_ui
         public string Description { get; set; }
         public string ImagePath { get; set; }
         public int Stock { get; set; }
+        public string Giver { get; set; } // Properti Giver ditambahkan
         public DateTime ExpiredDate { get; set; }
 
         public ProductItem() { }
