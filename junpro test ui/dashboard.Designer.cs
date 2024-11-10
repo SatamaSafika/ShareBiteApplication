@@ -34,6 +34,7 @@
             btngeneralSetting = new Button();
             button2 = new Button();
             button3 = new Button();
+            button4 = new Button();
             SuspendLayout();
             // 
             // button1
@@ -46,9 +47,9 @@
             button1.FlatAppearance.MouseOverBackColor = Color.Transparent;
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Microsoft Tai Le", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.Location = new Point(26, 181);
+            button1.Location = new Point(33, 181);
             button1.Name = "button1";
-            button1.Size = new Size(160, 45);
+            button1.Size = new Size(170, 45);
             button1.TabIndex = 0;
             button1.TextAlign = ContentAlignment.MiddleLeft;
             button1.UseVisualStyleBackColor = false;
@@ -61,7 +62,7 @@
             productPemberi.FlatAppearance.MouseDownBackColor = Color.Transparent;
             productPemberi.FlatAppearance.MouseOverBackColor = Color.Transparent;
             productPemberi.FlatStyle = FlatStyle.Flat;
-            productPemberi.Location = new Point(10, 102);
+            productPemberi.Location = new Point(44, 91);
             productPemberi.Name = "productPemberi";
             productPemberi.Size = new Size(159, 31);
             productPemberi.TabIndex = 1;
@@ -76,7 +77,7 @@
             btngeneralSetting.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btngeneralSetting.FlatStyle = FlatStyle.Flat;
             btngeneralSetting.Location = new Point(16, 691);
-            btngeneralSetting.Margin = new Padding(2, 2, 2, 2);
+            btngeneralSetting.Margin = new Padding(2);
             btngeneralSetting.Name = "btngeneralSetting";
             btngeneralSetting.Size = new Size(153, 36);
             btngeneralSetting.TabIndex = 2;
@@ -91,8 +92,8 @@
             button2.FlatAppearance.MouseDownBackColor = Color.Transparent;
             button2.FlatAppearance.MouseOverBackColor = Color.Transparent;
             button2.FlatStyle = FlatStyle.Flat;
-            button2.Location = new Point(16, 142);
-            button2.Margin = new Padding(2, 2, 2, 2);
+            button2.Location = new Point(33, 142);
+            button2.Margin = new Padding(2);
             button2.Name = "button2";
             button2.Size = new Size(170, 34);
             button2.TabIndex = 3;
@@ -113,12 +114,27 @@
             button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
             // 
+            // button4
+            // 
+            button4.BackColor = Color.Transparent;
+            button4.FlatAppearance.BorderSize = 0;
+            button4.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            button4.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            button4.FlatStyle = FlatStyle.Flat;
+            button4.Location = new Point(28, 937);
+            button4.Name = "button4";
+            button4.Size = new Size(175, 34);
+            button4.TabIndex = 5;
+            button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click;
+            // 
             // dashboard
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-            ClientSize = new Size(1110, 809);
+            ClientSize = new Size(1418, 1050);
+            Controls.Add(button4);
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(btngeneralSetting);
@@ -137,5 +153,6 @@
         private Button btngeneralSetting;
         private Button button2;
         private Button button3;
+        private Button button4;
     }
 }
