@@ -44,7 +44,7 @@
             txtName.BackColor = SystemColors.HotTrack;
             txtName.BorderStyle = BorderStyle.None;
             txtName.Font = new Font("Microsoft Tai Le", 8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtName.Location = new Point(953, 230);
+            txtName.Location = new Point(731, 177);
             txtName.Margin = new Padding(4);
             txtName.Name = "txtName";
             txtName.Size = new Size(402, 28);
@@ -53,17 +53,17 @@
             // txtDescription
             // 
             txtDescription.BorderStyle = BorderStyle.None;
-            txtDescription.Location = new Point(953, 334);
+            txtDescription.Location = new Point(731, 228);
             txtDescription.Margin = new Padding(4);
             txtDescription.Multiline = true;
             txtDescription.Name = "txtDescription";
-            txtDescription.Size = new Size(745, 192);
+            txtDescription.Size = new Size(510, 192);
             txtDescription.TabIndex = 1;
             // 
             // txtStock
             // 
             txtStock.BorderStyle = BorderStyle.None;
-            txtStock.Location = new Point(1104, 591);
+            txtStock.Location = new Point(843, 455);
             txtStock.Margin = new Padding(4);
             txtStock.Name = "txtStock";
             txtStock.Size = new Size(38, 32);
@@ -73,7 +73,7 @@
             // txtImagePath
             // 
             txtImagePath.BorderStyle = BorderStyle.None;
-            txtImagePath.Location = new Point(402, 658);
+            txtImagePath.Location = new Point(255, 508);
             txtImagePath.Margin = new Padding(4);
             txtImagePath.Multiline = true;
             txtImagePath.Name = "txtImagePath";
@@ -83,7 +83,7 @@
             // 
             // dtpExpiredDate
             // 
-            dtpExpiredDate.Location = new Point(1069, 689);
+            dtpExpiredDate.Location = new Point(815, 528);
             dtpExpiredDate.Margin = new Padding(4);
             dtpExpiredDate.Name = "dtpExpiredDate";
             dtpExpiredDate.Size = new Size(389, 39);
@@ -96,7 +96,7 @@
             btnSave.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnSave.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnSave.FlatStyle = FlatStyle.Flat;
-            btnSave.Location = new Point(1499, 1220);
+            btnSave.Location = new Point(1132, 950);
             btnSave.Margin = new Padding(4);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(216, 59);
@@ -111,7 +111,7 @@
             btnDelete.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnDelete.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnDelete.FlatStyle = FlatStyle.Flat;
-            btnDelete.Location = new Point(1225, 1220);
+            btnDelete.Location = new Point(911, 950);
             btnDelete.Margin = new Padding(4);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(199, 59);
@@ -126,7 +126,7 @@
             button1.FlatAppearance.MouseDownBackColor = Color.Transparent;
             button1.FlatAppearance.MouseOverBackColor = Color.Transparent;
             button1.FlatStyle = FlatStyle.Flat;
-            button1.Location = new Point(38, 178);
+            button1.Location = new Point(-381, -25);
             button1.Margin = new Padding(4);
             button1.Name = "button1";
             button1.Size = new Size(231, 50);

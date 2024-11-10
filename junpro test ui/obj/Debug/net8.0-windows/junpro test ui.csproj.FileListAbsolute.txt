@@ -192,7 +192,6 @@ C:\Users\ASUS\Documents\GitHub\ShareBiteApplication\junpro test ui\obj\Debug\net
 C:\Users\ASUS\Documents\GitHub\ShareBiteApplication\junpro test ui\obj\Debug\net8.0-windows\junpro_test_ui.dashboard.resources
 C:\Users\ASUS\Documents\GitHub\ShareBiteApplication\junpro test ui\obj\Debug\net8.0-windows\junpro_test_ui.EditgeneralSetting.resources
 C:\Users\ASUS\Documents\GitHub\ShareBiteApplication\junpro test ui\obj\Debug\net8.0-windows\junpro_test_ui.foodReq.resources
-C:\Users\ASUS\Documents\GitHub\ShareBiteApplication\junpro test ui\obj\Debug\net8.0-windows\junpro_test_ui.Form1.resources
 C:\Users\ASUS\Documents\GitHub\ShareBiteApplication\junpro test ui\obj\Debug\net8.0-windows\junpro_test_ui.login.resources
 C:\Users\ASUS\Documents\GitHub\ShareBiteApplication\junpro test ui\obj\Debug\net8.0-windows\junpro_test_ui.product.resources
 C:\Users\ASUS\Documents\GitHub\ShareBiteApplication\junpro test ui\obj\Debug\net8.0-windows\junpro_test_ui.productEditDelete.resources
@@ -215,3 +214,9 @@ C:\Users\ASUS\Documents\GitHub\ShareBiteApplication\junpro test ui\obj\Debug\net
 C:\Users\ASUS\Documents\GitHub\ShareBiteApplication\junpro test ui\obj\Debug\net8.0-windows\junpro test ui.pdb
 C:\Users\ASUS\Documents\GitHub\ShareBiteApplication\junpro test ui\obj\Debug\net8.0-windows\junpro test ui.genruntimeconfig.cache
 C:\Users\ASUS\Documents\GitHub\ShareBiteApplication\junpro test ui\obj\Debug\net8.0-windows\ref\junpro test ui.dll
+C:\Users\ASUS\Documents\GitHub\ShareBiteApplication\junpro test ui\obj\Debug\net8.0-windows\junpro_test_ui.Begin.resources
+C:\Users\ASUS\Documents\GitHub\ShareBiteApplication\junpro test ui\bin\Debug\net8.0-windows\dje-NE\junpro test ui.resources.dll
+C:\Users\ASUS\Documents\GitHub\ShareBiteApplication\junpro test ui\obj\Debug\net8.0-windows\junpro_test_ui.ScheduleDate.resources
+C:\Users\ASUS\Documents\GitHub\ShareBiteApplication\junpro test ui\obj\Debug\net8.0-windows\junpro_test_ui.ScheduleListReceiver.resources
+C:\Users\ASUS\Documents\GitHub\ShareBiteApplication\junpro test ui\obj\Debug\net8.0-windows\junpro_test_ui.ScheduleDate.dje-NE.resources
+C:\Users\ASUS\Documents\GitHub\ShareBiteApplication\junpro test ui\obj\Debug\net8.0-windows\dje-NE\junpro test ui.resources.dll

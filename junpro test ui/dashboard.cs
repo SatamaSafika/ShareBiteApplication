@@ -20,7 +20,7 @@ namespace junpro_test_ui
 
         private void button1_Click(object sender, EventArgs e)
         {
-            requestList form4 = new requestList();
+            ScheduleListReceiver form4 = new ScheduleListReceiver();
             form4.Show();
             this.Close();
         }
@@ -48,6 +48,13 @@ namespace junpro_test_ui
         {
             requestList form15 = new requestList();
             form15.Show();
+            this.Close();
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            Begin form8 = new Begin();
+            form8.Show();
             this.Close();
         }
     }

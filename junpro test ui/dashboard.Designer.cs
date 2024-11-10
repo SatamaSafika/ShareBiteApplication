@@ -33,6 +33,7 @@
             productPemberi = new Button();
             btngeneralSetting = new Button();
             button2 = new Button();
+            btnLogout = new Button();
             SuspendLayout();
             // 
             // button1
@@ -45,10 +46,10 @@
             button1.FlatAppearance.MouseOverBackColor = Color.Transparent;
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Microsoft Tai Le", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.Location = new Point(25, 232);
+            button1.Location = new Point(-9, 232);
             button1.Margin = new Padding(4);
             button1.Name = "button1";
-            button1.Size = new Size(208, 58);
+            button1.Size = new Size(242, 58);
             button1.TabIndex = 0;
             button1.TextAlign = ContentAlignment.MiddleLeft;
             button1.UseVisualStyleBackColor = false;
@@ -61,10 +62,10 @@
             productPemberi.FlatAppearance.MouseDownBackColor = Color.Transparent;
             productPemberi.FlatAppearance.MouseOverBackColor = Color.Transparent;
             productPemberi.FlatStyle = FlatStyle.Flat;
-            productPemberi.Location = new Point(4, 131);
+            productPemberi.Location = new Point(1, 135);
             productPemberi.Margin = new Padding(4);
             productPemberi.Name = "productPemberi";
-            productPemberi.Size = new Size(207, 40);
+            productPemberi.Size = new Size(239, 40);
             productPemberi.TabIndex = 1;
             productPemberi.UseVisualStyleBackColor = false;
             productPemberi.Click += productPemberi_Click;
@@ -98,12 +99,28 @@
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
+            // btnLogout
+            // 
+            btnLogout.BackColor = Color.Transparent;
+            btnLogout.FlatAppearance.BorderSize = 0;
+            btnLogout.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnLogout.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            btnLogout.FlatStyle = FlatStyle.Flat;
+            btnLogout.Location = new Point(12, 937);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new Size(199, 46);
+            btnLogout.TabIndex = 4;
+            btnLogout.TextAlign = ContentAlignment.TopLeft;
+            btnLogout.UseVisualStyleBackColor = false;
+            btnLogout.Click += btnLogout_Click;
+            // 
             // dashboard
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(1443, 1035);
+            Controls.Add(btnLogout);
             Controls.Add(button2);
             Controls.Add(btngeneralSetting);
             Controls.Add(productPemberi);
@@ -121,5 +138,6 @@
         private Button productPemberi;
         private Button btngeneralSetting;
         private Button button2;
+        private Button btnLogout;
     }
 }

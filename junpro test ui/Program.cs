@@ -11,7 +11,7 @@ namespace junpro_test_ui
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new register());
+            Application.Run(new Begin());
         }
 
         public static class UserSession

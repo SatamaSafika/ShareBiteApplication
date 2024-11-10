@@ -90,5 +90,10 @@ namespace junpro_test_ui
 
 
         }
+
+        private void tbpassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
