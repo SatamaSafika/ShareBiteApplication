@@ -19,6 +19,7 @@ namespace junpro_test_ui
         public string Slot { get; set; }
         public string RequestedDate { get; set; }
 
+
         public requestAcc()
         {
             InitializeComponent();
@@ -71,28 +72,31 @@ namespace junpro_test_ui
 
         private void btnAcc_Click(object sender, EventArgs e)
         {
-            // Debugging: Tampilkan username
             MessageBox.Show("Logged in as: " + Program.UserSession.LoggedInUsername);
 
-            // Ambil nilai dari TextBox dan MonthCalendar
             string place = tbPlace.Text;
             DateTime pickUpDate = pickupDate.SelectionStart;
 
-            // Validasi input
             if (string.IsNullOrWhiteSpace(place) || string.IsNullOrWhiteSpace(ProductName) || string.IsNullOrWhiteSpace(Receiver) || string.IsNullOrWhiteSpace(Slot))
             {
                 MessageBox.Show("Semua field harus diisi!");
                 return;
             }
 
-            // Buat instance dari DatabaseHelper
             DatabaseHelper dbHelper = new DatabaseHelper();
 
-            // Validasi apakah pengguna yang sedang login adalah pemberi
             if (dbHelper.IsUserGiver(Program.UserSession.LoggedInUsername))
             {
-                // Simpan data ke database
                 dbHelper.SaveApprovedRequest(ProductName, Program.UserSession.LoggedInUsername, Receiver, Convert.ToInt32(Slot), place, pickUpDate);
+
+                DialogResult result = MessageBox.Show("Request disetujui dan telah dihapus dari daftar request.", "Konfirmasi", MessageBoxButtons.OK);
+
+                if (result == DialogResult.OK)
+                {
+                    requestList formA = new requestList();
+                    formA.Show();
+                    this.Close();
+                }
             }
             else
             {
@@ -100,10 +104,17 @@ namespace junpro_test_ui
             }
         }
 
+
         private void button2_Click(object sender, EventArgs e)
         {
 
         }
-    }
 
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            requestList form6 = new requestList();
+            form6.Show();
+            this.Close();
+        }
+    }
 }

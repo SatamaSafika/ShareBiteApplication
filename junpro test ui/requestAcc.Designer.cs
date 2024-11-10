@@ -38,6 +38,7 @@
             tbRequestedDate = new TextBox();
             button2 = new Button();
             btnAcc = new Button();
+            btnCancel = new Button();
             SuspendLayout();
             // 
             // button1
@@ -133,13 +134,26 @@
             // 
             // btnAcc
             // 
-            btnAcc.Location = new Point(1125, 906);
+            btnAcc.BackColor = Color.Transparent;
+            btnAcc.FlatStyle = FlatStyle.Flat;
+            btnAcc.ForeColor = Color.Transparent;
+            btnAcc.Location = new Point(1134, 942);
             btnAcc.Name = "btnAcc";
             btnAcc.Size = new Size(150, 46);
             btnAcc.TabIndex = 8;
-            btnAcc.Text = "Accep";
-            btnAcc.UseVisualStyleBackColor = true;
+            btnAcc.UseVisualStyleBackColor = false;
             btnAcc.Click += btnAcc_Click;
+            // 
+            // btnCancel
+            // 
+            btnCancel.BackColor = Color.Transparent;
+            btnCancel.FlatStyle = FlatStyle.Flat;
+            btnCancel.Location = new Point(931, 942);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(150, 46);
+            btnCancel.TabIndex = 9;
+            btnCancel.UseVisualStyleBackColor = false;
+            btnCancel.Click += btnCancel_Click;
             // 
             // requestAcc
             // 
@@ -147,6 +161,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(1415, 1035);
+            Controls.Add(btnCancel);
             Controls.Add(btnAcc);
             Controls.Add(button2);
             Controls.Add(tbRequestedDate);
@@ -175,5 +190,6 @@
         private TextBox tbRequestedDate;
         private Button button2;
         private Button btnAcc;
+        private Button btnCancel;
     }
 }

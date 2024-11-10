@@ -33,8 +33,15 @@
             productPemberi = new Button();
             btngeneralSetting = new Button();
             button2 = new Button();
+<<<<<<< HEAD
+            btnLogout = new Button();
+=======
             button3 = new Button();
+<<<<<<< HEAD
             button4 = new Button();
+=======
+>>>>>>> main
+>>>>>>> main
             SuspendLayout();
             // 
             // button1
@@ -47,9 +54,22 @@
             button1.FlatAppearance.MouseOverBackColor = Color.Transparent;
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Microsoft Tai Le", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+<<<<<<< HEAD
             button1.Location = new Point(33, 181);
             button1.Name = "button1";
             button1.Size = new Size(170, 45);
+=======
+<<<<<<< HEAD
+            button1.Location = new Point(-9, 232);
+            button1.Margin = new Padding(4);
+            button1.Name = "button1";
+            button1.Size = new Size(242, 58);
+=======
+            button1.Location = new Point(26, 181);
+            button1.Name = "button1";
+            button1.Size = new Size(160, 45);
+>>>>>>> main
+>>>>>>> main
             button1.TabIndex = 0;
             button1.TextAlign = ContentAlignment.MiddleLeft;
             button1.UseVisualStyleBackColor = false;
@@ -62,9 +82,20 @@
             productPemberi.FlatAppearance.MouseDownBackColor = Color.Transparent;
             productPemberi.FlatAppearance.MouseOverBackColor = Color.Transparent;
             productPemberi.FlatStyle = FlatStyle.Flat;
+<<<<<<< HEAD
             productPemberi.Location = new Point(44, 91);
+=======
+<<<<<<< HEAD
+            productPemberi.Location = new Point(1, 135);
+            productPemberi.Margin = new Padding(4);
+            productPemberi.Name = "productPemberi";
+            productPemberi.Size = new Size(239, 40);
+=======
+            productPemberi.Location = new Point(10, 102);
+>>>>>>> main
             productPemberi.Name = "productPemberi";
             productPemberi.Size = new Size(159, 31);
+>>>>>>> main
             productPemberi.TabIndex = 1;
             productPemberi.UseVisualStyleBackColor = false;
             productPemberi.Click += productPemberi_Click;
@@ -76,8 +107,16 @@
             btngeneralSetting.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btngeneralSetting.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btngeneralSetting.FlatStyle = FlatStyle.Flat;
+<<<<<<< HEAD
+            btngeneralSetting.Location = new Point(12, 885);
+=======
             btngeneralSetting.Location = new Point(16, 691);
+<<<<<<< HEAD
             btngeneralSetting.Margin = new Padding(2);
+=======
+            btngeneralSetting.Margin = new Padding(2, 2, 2, 2);
+>>>>>>> main
+>>>>>>> main
             btngeneralSetting.Name = "btngeneralSetting";
             btngeneralSetting.Size = new Size(153, 36);
             btngeneralSetting.TabIndex = 2;
@@ -92,14 +131,39 @@
             button2.FlatAppearance.MouseDownBackColor = Color.Transparent;
             button2.FlatAppearance.MouseOverBackColor = Color.Transparent;
             button2.FlatStyle = FlatStyle.Flat;
+<<<<<<< HEAD
             button2.Location = new Point(33, 142);
             button2.Margin = new Padding(2);
+=======
+<<<<<<< HEAD
+            button2.Location = new Point(12, 182);
+=======
+            button2.Location = new Point(16, 142);
+            button2.Margin = new Padding(2, 2, 2, 2);
+>>>>>>> main
+>>>>>>> main
             button2.Name = "button2";
             button2.Size = new Size(170, 34);
             button2.TabIndex = 3;
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
+<<<<<<< HEAD
+            // btnLogout
+            // 
+            btnLogout.BackColor = Color.Transparent;
+            btnLogout.FlatAppearance.BorderSize = 0;
+            btnLogout.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnLogout.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            btnLogout.FlatStyle = FlatStyle.Flat;
+            btnLogout.Location = new Point(12, 937);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new Size(199, 46);
+            btnLogout.TabIndex = 4;
+            btnLogout.TextAlign = ContentAlignment.TopLeft;
+            btnLogout.UseVisualStyleBackColor = false;
+            btnLogout.Click += btnLogout_Click;
+=======
             // button3
             // 
             button3.BackColor = Color.Transparent;
@@ -113,6 +177,7 @@
             button3.TabIndex = 4;
             button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
+>>>>>>> main
             // 
             // button4
             // 
@@ -133,9 +198,18 @@
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+<<<<<<< HEAD
             ClientSize = new Size(1418, 1050);
             Controls.Add(button4);
+=======
+<<<<<<< HEAD
+            ClientSize = new Size(1443, 1035);
+            Controls.Add(btnLogout);
+=======
+            ClientSize = new Size(1110, 809);
+>>>>>>> main
             Controls.Add(button3);
+>>>>>>> main
             Controls.Add(button2);
             Controls.Add(btngeneralSetting);
             Controls.Add(productPemberi);
@@ -152,7 +226,14 @@
         private Button productPemberi;
         private Button btngeneralSetting;
         private Button button2;
+<<<<<<< HEAD
+        private Button btnLogout;
+=======
         private Button button3;
+<<<<<<< HEAD
         private Button button4;
+=======
+>>>>>>> main
+>>>>>>> main
     }
 }

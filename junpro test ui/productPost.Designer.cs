@@ -44,9 +44,10 @@
             txtNameProduct.BorderStyle = BorderStyle.None;
             txtNameProduct.Font = new Font("Microsoft Tai Le", 8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtNameProduct.ForeColor = SystemColors.Desktop;
-            txtNameProduct.Location = new Point(739, 181);
+            txtNameProduct.Location = new Point(686, 177);
+            txtNameProduct.Margin = new Padding(4);
             txtNameProduct.Name = "txtNameProduct";
-            txtNameProduct.Size = new Size(293, 21);
+            txtNameProduct.Size = new Size(381, 28);
             txtNameProduct.TabIndex = 0;
             txtNameProduct.TextChanged += textBox1_TextChanged;
             // 
@@ -55,10 +56,11 @@
             txtDescriptionProduct.BorderStyle = BorderStyle.None;
             txtDescriptionProduct.Font = new Font("Microsoft Tai Le", 8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtDescriptionProduct.ForeColor = SystemColors.Desktop;
-            txtDescriptionProduct.Location = new Point(739, 256);
+            txtDescriptionProduct.Location = new Point(686, 236);
+            txtDescriptionProduct.Margin = new Padding(4);
             txtDescriptionProduct.Multiline = true;
             txtDescriptionProduct.Name = "txtDescriptionProduct";
-            txtDescriptionProduct.Size = new Size(570, 150);
+            txtDescriptionProduct.Size = new Size(603, 192);
             txtDescriptionProduct.TabIndex = 1;
             // 
             // txtStockProduct
@@ -66,17 +68,19 @@
             txtStockProduct.BorderStyle = BorderStyle.None;
             txtStockProduct.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtStockProduct.ForeColor = SystemColors.InactiveCaption;
-            txtStockProduct.Location = new Point(849, 457);
+            txtStockProduct.Location = new Point(859, 458);
+            txtStockProduct.Margin = new Padding(4);
             txtStockProduct.Name = "txtStockProduct";
-            txtStockProduct.Size = new Size(24, 24);
+            txtStockProduct.Size = new Size(31, 32);
             txtStockProduct.TabIndex = 2;
             txtStockProduct.TextAlign = HorizontalAlignment.Center;
             // 
             // dtpExpiredDateProduct
             // 
-            dtpExpiredDateProduct.Location = new Point(831, 537);
+            dtpExpiredDateProduct.Location = new Point(824, 530);
+            dtpExpiredDateProduct.Margin = new Padding(4);
             dtpExpiredDateProduct.Name = "dtpExpiredDateProduct";
-            dtpExpiredDateProduct.Size = new Size(300, 31);
+            dtpExpiredDateProduct.Size = new Size(389, 39);
             dtpExpiredDateProduct.TabIndex = 3;
             dtpExpiredDateProduct.ValueChanged += dateTimePicker1_ValueChanged;
             // 
@@ -85,10 +89,11 @@
             txtImagePathProduct.BorderStyle = BorderStyle.None;
             txtImagePathProduct.Font = new Font("Microsoft Tai Le", 8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtImagePathProduct.ForeColor = SystemColors.Desktop;
-            txtImagePathProduct.Location = new Point(321, 513);
+            txtImagePathProduct.Location = new Point(270, 512);
+            txtImagePathProduct.Margin = new Padding(4);
             txtImagePathProduct.Multiline = true;
             txtImagePathProduct.Name = "txtImagePathProduct";
-            txtImagePathProduct.Size = new Size(293, 31);
+            txtImagePathProduct.Size = new Size(381, 40);
             txtImagePathProduct.TabIndex = 4;
             txtImagePathProduct.TextAlign = HorizontalAlignment.Center;
             // 
@@ -99,9 +104,10 @@
             btnInsert.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnInsert.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnInsert.FlatStyle = FlatStyle.Flat;
-            btnInsert.Location = new Point(1157, 957);
+            btnInsert.Location = new Point(1145, 948);
+            btnInsert.Margin = new Padding(4);
             btnInsert.Name = "btnInsert";
-            btnInsert.Size = new Size(152, 40);
+            btnInsert.Size = new Size(198, 51);
             btnInsert.TabIndex = 5;
             btnInsert.UseVisualStyleBackColor = false;
             btnInsert.Click += btnInsert_Click;
@@ -113,9 +119,10 @@
             button1.FlatAppearance.MouseDownBackColor = Color.Transparent;
             button1.FlatAppearance.MouseOverBackColor = Color.Transparent;
             button1.FlatStyle = FlatStyle.Flat;
-            button1.Location = new Point(26, 135);
+            button1.Location = new Point(-438, -26);
+            button1.Margin = new Padding(4);
             button1.Name = "button1";
-            button1.Size = new Size(189, 39);
+            button1.Size = new Size(246, 50);
             button1.TabIndex = 6;
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
@@ -125,19 +132,20 @@
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Microsoft Tai Le", 8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(388, 489);
+            label1.Location = new Point(383, 479);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(144, 21);
+            label1.Size = new Size(197, 29);
             label1.TabIndex = 7;
             label1.Text = "Insert image path";
             label1.Click += label1_Click;
             // 
             // productPost
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-            ClientSize = new Size(1418, 1050);
+            ClientSize = new Size(1374, 1050);
             Controls.Add(label1);
             Controls.Add(button1);
             Controls.Add(btnInsert);
@@ -146,8 +154,10 @@
             Controls.Add(txtStockProduct);
             Controls.Add(txtDescriptionProduct);
             Controls.Add(txtNameProduct);
+            Margin = new Padding(4);
             Name = "productPost";
             Text = "Form1";
+            Load += productPost_Load;
             ResumeLayout(false);
             PerformLayout();
         }

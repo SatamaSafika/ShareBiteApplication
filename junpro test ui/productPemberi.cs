@@ -8,11 +8,11 @@ namespace junpro_test_ui
 {
     public partial class productPemberi : Form
     {
-       /* public productPemberi()
+        public productPemberi()
         {
             InitializeComponent();
             this.Load += new System.EventHandler(this.productPemberi_Load);
-        }*/
+        }
 
         private void productPost_Click(object sender, EventArgs e)
         {
@@ -54,8 +54,8 @@ namespace junpro_test_ui
 
         private void LoadData()
         {
-            /*DatabaseHelper dbHelper = new DatabaseHelper();
-            List<ProductItem> products = dbHelper.GetProducts();
+            DatabaseHelper dbHelper = new DatabaseHelper();
+            List<ProductItem> products = dbHelper.GetProductsByGiver(Program.UserSession.LoggedInUsername);
             int x = 10, y = 10, counter = 0;
 
             foreach (var product in products)
@@ -111,16 +111,16 @@ namespace junpro_test_ui
 
                 panel.Tag = product.ID; // Save product ID as Tag
                 panel.Click += panel_Click;
-            }*/
+            }
         }
 
         private void panel_Click(object sender, EventArgs e)
         {
-            /*string productID = ((Panel)sender).Tag.ToString();
-            OpenEditForm(productID);*/
+            string productID = ((Panel)sender).Tag.ToString();
+            OpenEditForm(productID);
         }
 
-        /*private void OpenEditForm(string productID)
+        private void OpenEditForm(string productID)
         {
             var dbHelper = new DatabaseHelper();
             ProductItem product = dbHelper.GetProductById(productID);
@@ -152,6 +152,51 @@ namespace junpro_test_ui
         private void productPemberi_Load_1(object sender, EventArgs e)
         {
 
-        }*/
+        }
+
+        private void panelContainer_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void productPemberi_Load_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            dashboard form10 = new dashboard();
+            form10.Show();
+            this.Close();
+        }
+
+        private void btnRequest_Click(object sender, EventArgs e)
+        {
+            requestList form13 = new requestList();
+            form13.Show();
+            this.Close();
+        }
+
+        private void btnSchedule_Click(object sender, EventArgs e)
+        {
+            ScheduleListReceiver form14 = new ScheduleListReceiver();
+            form14.Show();
+            this.Close();
+        }
+
+        private void btnSetting_Click(object sender, EventArgs e)
+        {
+            ViewgeneralSetting form15 = new ViewgeneralSetting();
+            form15.Show();
+            this.Close();
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            Begin form16 = new Begin();
+            form16.Show();
+            this.Close();
+        }
     }
 }

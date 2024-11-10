@@ -31,8 +31,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(product));
             buttonMilk = new Button();
             btngeneralSetting = new Button();
+<<<<<<< HEAD
             button1 = new Button();
             lblNotifUnread = new Label();
+=======
+            panelContainer = new Panel();
+            lblName = new Label();
+            lblStock = new Label();
+            panelContainer.SuspendLayout();
+>>>>>>> main
             SuspendLayout();
             // 
             // buttonMilk
@@ -64,6 +71,7 @@
             btngeneralSetting.UseVisualStyleBackColor = false;
             btngeneralSetting.Click += btngeneralSetting_Click;
             // 
+<<<<<<< HEAD
             // button1
             // 
             button1.BackColor = Color.Transparent;
@@ -89,6 +97,34 @@
             lblNotifUnread.TabIndex = 3;
             lblNotifUnread.Text = "     ";
             lblNotifUnread.Click += lblNotifUnread_Click;
+=======
+            // panelContainer
+            // 
+            panelContainer.BackColor = Color.Transparent;
+            panelContainer.Controls.Add(lblName);
+            panelContainer.Controls.Add(lblStock);
+            panelContainer.Location = new Point(274, 529);
+            panelContainer.Name = "panelContainer";
+            panelContainer.Size = new Size(1160, 527);
+            panelContainer.TabIndex = 2;
+            panelContainer.Paint += panel1_Paint;
+            // 
+            // lblName
+            // 
+            lblName.AutoSize = true;
+            lblName.Location = new Point(29, 344);
+            lblName.Name = "lblName";
+            lblName.Size = new Size(0, 32);
+            lblName.TabIndex = 2;
+            // 
+            // lblStock
+            // 
+            lblStock.AutoSize = true;
+            lblStock.Location = new Point(16, 462);
+            lblStock.Name = "lblStock";
+            lblStock.Size = new Size(0, 32);
+            lblStock.TabIndex = 1;
+>>>>>>> main
             // 
             // product
             // 
@@ -96,14 +132,26 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+<<<<<<< HEAD
             ClientSize = new Size(1418, 1050);
             Controls.Add(lblNotifUnread);
             Controls.Add(button1);
+=======
+            ClientSize = new Size(1446, 1084);
+            Controls.Add(panelContainer);
+>>>>>>> main
             Controls.Add(btngeneralSetting);
             Controls.Add(buttonMilk);
             Name = "product";
+<<<<<<< HEAD
             Text = "   ";
             Load += product_Load;
+=======
+            Text = "Form1";
+            Load += product_Load;
+            panelContainer.ResumeLayout(false);
+            panelContainer.PerformLayout();
+>>>>>>> main
             ResumeLayout(false);
             PerformLayout();
         }
@@ -112,7 +160,13 @@
 
         private Button buttonMilk;
         private Button btngeneralSetting;
+<<<<<<< HEAD
         private Button button1;
         private Label lblNotifUnread;
+=======
+        private Panel panelContainer;
+        private Label lblStock;
+        private Label lblName;
+>>>>>>> main
     }
 }

@@ -45,13 +45,22 @@ namespace junpro_test_ui
                 try
                 {
                     connection.Open();
-                    string query = "SELECT * FROM pengajuanRequest";
-                    NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(query, connection);
-                    DataTable dataTable = new DataTable();
-                    adapter.Fill(dataTable);
-                    dataGridView1.DataSource = dataTable; // Set the DataGridView's DataSource
 
-                    dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+                    // Query untuk mendapatkan request yang hanya dibuat oleh giver yang sedang login
+                    string query = "SELECT * FROM request WHERE giver = @giver";
+
+                    using (NpgsqlCommand command = new NpgsqlCommand(query, connection))
+                    {
+                        // Tambahkan parameter giver dengan username dari sesi login
+                        command.Parameters.AddWithValue("@giver", Program.UserSession.LoggedInUsername);
+
+                        NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command);
+                        DataTable dataTable = new DataTable();
+                        adapter.Fill(dataTable);
+                        dataGridView1.DataSource = dataTable; // Set DataGridView DataSource
+
+                        dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -100,6 +109,73 @@ namespace junpro_test_ui
             {
                 MessageBox.Show("Silakan pilih request terlebih dahulu.");
             }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (selectedRow != null)
+            {
+                var confirmResult = MessageBox.Show("Are you sure to delete this request?", "Confirm Delete", MessageBoxButtons.YesNo);
+                if (confirmResult == DialogResult.Yes)
+                {
+                    string requestId = selectedRow.Cells["id"].Value.ToString();
+
+                    using (NpgsqlConnection connection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["MyDatabase"].ConnectionString))
+                    {
+                        connection.Open();
+                        string query = "DELETE FROM request WHERE id = @id";
+
+                        using (NpgsqlCommand command = new NpgsqlCommand(query, connection))
+                        {
+                            command.Parameters.AddWithValue("@id", int.Parse(requestId));
+                            command.ExecuteNonQuery();
+                        }
+                        connection.Close();
+                    }
+
+                    MessageBox.Show("Request deleted successfully.");
+                    LoadData(); // Refresh the data grid after deletion
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a request to delete.");
+            }
+        }
+
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            dashboard form10 = new dashboard();
+            form10.Show();
+            this.Close();
+        }
+
+        private void btnProduct_Click(object sender, EventArgs e)
+        {
+            productPemberi form9 = new productPemberi();
+            form9.Show();
+            this.Close();
+        }
+
+        private void btnSchedule_Click(object sender, EventArgs e)
+        {
+            ScheduleListReceiver form14 = new ScheduleListReceiver();
+            form14.Show();
+            this.Close();
+        }
+
+        private void btnSetting_Click(object sender, EventArgs e)
+        {
+            ViewgeneralSetting form15 = new ViewgeneralSetting();
+            form15.Show();
+            this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Begin form8 = new Begin();
+            form8.Show();
+            this.Close();
         }
     }
 }

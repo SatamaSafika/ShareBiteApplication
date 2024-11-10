@@ -43,6 +43,12 @@
     <Compile Update="requestList.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="ScheduleDate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ScheduleListReceiver.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="ViewgeneralSetting.cs">
       <SubType>Form</SubType>
     </Compile>
