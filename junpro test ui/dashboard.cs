@@ -51,10 +51,17 @@ namespace junpro_test_ui
             this.Close();
         }
 
+<<<<<<< HEAD
         private void btnLogout_Click(object sender, EventArgs e)
         {
             Begin form8 = new Begin();
             form8.Show();
+=======
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Announcement announce = new Announcement();
+            announce.Show();
+>>>>>>> main
             this.Close();
         }
     }

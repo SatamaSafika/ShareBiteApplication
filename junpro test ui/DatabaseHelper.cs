@@ -405,6 +405,7 @@ namespace junpro_test_ui
             }
         }
 
+<<<<<<< HEAD
         public void InsertRequest(string productName, string giver, string receiver, int slot, DateTime requestDate)
         {
             using (NpgsqlConnection connection = new NpgsqlConnection(_connectionString))
@@ -494,19 +495,98 @@ namespace junpro_test_ui
 
                         int rowsAffected = command.ExecuteNonQuery();
                         return rowsAffected > 0;
+=======
+        // Method to create an announcement
+        public bool CreateAnnouncement(int pemberiId, string content)
+        {
+            try
+            {
+                using (var conn = new NpgsqlConnection(_connectionString))
+                {
+                    conn.Open();
+
+                    // Insert the announcement
+                    using (var cmd = new NpgsqlCommand("INSERT INTO announcement (pemberi_id, content) VALUES (@pemberiId, @content) RETURNING id", conn))
+                    {
+                        cmd.Parameters.AddWithValue("pemberiId", pemberiId);
+                        cmd.Parameters.AddWithValue("content", content);
+
+                        var result = cmd.ExecuteScalar();
+                        int announcementId = Convert.ToInt32(result);
+
+                        if (announcementId > 0)
+                        {
+                            // Send notifications to followers
+                            Inbox notification = new Inbox();
+                            notification.SendNotificationToFollowers(pemberiId, announcementId);
+
+                            return true;
+                        }
+>>>>>>> main
                     }
                 }
             }
             catch (Exception ex)
             {
+<<<<<<< HEAD
                 MessageBox.Show("Error saat update: " + ex.Message); // Untuk debugging
                 return false;
             }
+=======
+                Console.WriteLine($"Error creating announcement: {ex.Message}");
+                return false;
+            }
+            return false;
+>>>>>>> main
         }
 
 
 
+<<<<<<< HEAD
 
+=======
+        // Method to notify followers of a new announcement
+        private void SendNotificationToFollowers(NpgsqlConnection conn, int pemberiId, int announcementId)
+        {
+            using (var cmd = new NpgsqlCommand("SELECT follower_id FROM following WHERE followed_id = @pemberiId", conn))
+            {
+                cmd.Parameters.AddWithValue("pemberiId", pemberiId);
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    List<int> followerIds = new List<int>();
+
+                    // Collect all follower IDs
+                    while (reader.Read())
+                    {
+                        followerIds.Add(reader.GetInt32(0));
+                    }
+
+                    // Insert notifications for each follower in one transaction
+                    using (var transaction = conn.BeginTransaction())
+                    {
+                        foreach (var followerId in followerIds)
+                        {
+                            CreateNotification(conn, followerId, announcementId);
+                        }
+                        transaction.Commit();
+                    }
+                }
+            }
+        }
+
+        // Method to create a notification for a follower
+        private void CreateNotification(NpgsqlConnection conn, int penerimaId, int announcementId)
+        {
+            using (var cmd = new NpgsqlCommand("INSERT INTO notifications (penerima_id, announcement_id, status) VALUES (@penerimaId, @announcementId, 'unread')", conn))
+            {
+                cmd.Parameters.AddWithValue("penerimaId", penerimaId);
+                cmd.Parameters.AddWithValue("announcementId", announcementId);
+                cmd.ExecuteNonQuery();
+            }
+        }
+    
+>>>>>>> main
 
 
 

@@ -22,10 +22,10 @@ namespace junpro_test_ui
 
         }
 
-        private void btnBegin_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            register registerForm = new register();
-            registerForm.Show();
+            register regisForm = new register();
+            regisForm.Show();
             this.Hide();
         }
     }

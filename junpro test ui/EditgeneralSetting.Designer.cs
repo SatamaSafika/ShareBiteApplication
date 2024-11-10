@@ -42,54 +42,60 @@
             // 
             tbusername.BackColor = Color.FromArgb(241, 244, 249);
             tbusername.BorderStyle = BorderStyle.None;
-            tbusername.Location = new Point(460, 437);
+            tbusername.Location = new Point(354, 341);
+            tbusername.Margin = new Padding(2, 2, 2, 2);
             tbusername.Name = "tbusername";
-            tbusername.Size = new Size(344, 32);
+            tbusername.Size = new Size(265, 24);
             tbusername.TabIndex = 0;
             // 
             // tbcurrent_password
             // 
             tbcurrent_password.BackColor = Color.FromArgb(241, 244, 249);
             tbcurrent_password.BorderStyle = BorderStyle.None;
-            tbcurrent_password.Location = new Point(460, 581);
+            tbcurrent_password.Location = new Point(354, 454);
+            tbcurrent_password.Margin = new Padding(2, 2, 2, 2);
             tbcurrent_password.Name = "tbcurrent_password";
-            tbcurrent_password.Size = new Size(344, 32);
+            tbcurrent_password.Size = new Size(265, 24);
             tbcurrent_password.TabIndex = 1;
             // 
             // tbnew_password
             // 
             tbnew_password.BackColor = Color.FromArgb(241, 244, 249);
             tbnew_password.BorderStyle = BorderStyle.None;
-            tbnew_password.Location = new Point(460, 711);
+            tbnew_password.Location = new Point(354, 555);
+            tbnew_password.Margin = new Padding(2, 2, 2, 2);
             tbnew_password.Name = "tbnew_password";
-            tbnew_password.Size = new Size(344, 32);
+            tbnew_password.Size = new Size(265, 24);
             tbnew_password.TabIndex = 2;
             // 
             // tbemail
             // 
             tbemail.BackColor = Color.FromArgb(241, 244, 249);
             tbemail.BorderStyle = BorderStyle.None;
-            tbemail.Location = new Point(881, 440);
+            tbemail.Location = new Point(678, 344);
+            tbemail.Margin = new Padding(2, 2, 2, 2);
             tbemail.Name = "tbemail";
-            tbemail.Size = new Size(346, 32);
+            tbemail.Size = new Size(266, 24);
             tbemail.TabIndex = 3;
             // 
             // tblocation
             // 
             tblocation.BackColor = Color.FromArgb(241, 244, 249);
             tblocation.BorderStyle = BorderStyle.None;
-            tblocation.Location = new Point(881, 581);
+            tblocation.Location = new Point(678, 454);
+            tblocation.Margin = new Padding(2, 2, 2, 2);
             tblocation.Name = "tblocation";
-            tblocation.Size = new Size(342, 32);
+            tblocation.Size = new Size(263, 24);
             tblocation.TabIndex = 4;
             // 
             // tbabout_me
             // 
             tbabout_me.BackColor = Color.FromArgb(241, 244, 249);
             tbabout_me.BorderStyle = BorderStyle.None;
-            tbabout_me.Location = new Point(881, 711);
+            tbabout_me.Location = new Point(678, 555);
+            tbabout_me.Margin = new Padding(2, 2, 2, 2);
             tbabout_me.Name = "tbabout_me";
-            tbabout_me.Size = new Size(342, 32);
+            tbabout_me.Size = new Size(263, 24);
             tbabout_me.TabIndex = 5;
             // 
             // btnsave
@@ -99,20 +105,21 @@
             btnsave.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnsave.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnsave.FlatStyle = FlatStyle.Flat;
-            btnsave.Location = new Point(710, 820);
+            btnsave.Location = new Point(546, 641);
+            btnsave.Margin = new Padding(2, 2, 2, 2);
             btnsave.Name = "btnsave";
-            btnsave.Size = new Size(265, 46);
+            btnsave.Size = new Size(204, 36);
             btnsave.TabIndex = 6;
             btnsave.UseVisualStyleBackColor = false;
             btnsave.Click += btnsave_Click;
             // 
             // EditgeneralSetting
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Center;
-            ClientSize = new Size(1415, 1035);
+            ClientSize = new Size(1418, 1050);
             Controls.Add(btnsave);
             Controls.Add(tbabout_me);
             Controls.Add(tblocation);
@@ -121,6 +128,7 @@
             Controls.Add(tbcurrent_password);
             Controls.Add(tbusername);
             FormBorderStyle = FormBorderStyle.SizableToolWindow;
+            Margin = new Padding(2, 2, 2, 2);
             Name = "EditgeneralSetting";
             RightToLeft = RightToLeft.No;
             Text = "generalSetting";
