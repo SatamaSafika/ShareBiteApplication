@@ -64,5 +64,12 @@ namespace junpro_test_ui
 >>>>>>> main
             this.Close();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            login Login = new login();
+            Login.Show();
+            this.Close();
+        }
     }
 }

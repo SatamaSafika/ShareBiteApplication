@@ -504,12 +504,15 @@ namespace junpro_test_ui
                 using (var conn = new NpgsqlConnection(_connectionString))
                 {
                     conn.Open();
-
-                    // Insert the announcement
-                    using (var cmd = new NpgsqlCommand("INSERT INTO announcement (pemberi_id, content) VALUES (@pemberiId, @content) RETURNING id", conn))
+                    using (var cmd = new NpgsqlCommand(
+                        "INSERT INTO announcement (pemberi_id, content, created_at) VALUES (@pemberiId, @content, NOW())", conn))
                     {
                         cmd.Parameters.AddWithValue("pemberiId", pemberiId);
                         cmd.Parameters.AddWithValue("content", content);
+<<<<<<< HEAD
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        return rowsAffected > 0; // Return true if the insert was successful
+=======
 
                         var result = cmd.ExecuteScalar();
                         int announcementId = Convert.ToInt32(result);
@@ -523,11 +526,17 @@ namespace junpro_test_ui
                             return true;
                         }
 >>>>>>> main
+>>>>>>> main
                     }
                 }
             }
             catch (Exception ex)
             {
+<<<<<<< HEAD
+                Console.WriteLine("Error posting announcement: " + ex.Message);
+                return false;
+            }
+=======
 <<<<<<< HEAD
                 MessageBox.Show("Error saat update: " + ex.Message); // Untuk debugging
                 return false;
@@ -538,6 +547,7 @@ namespace junpro_test_ui
             }
             return false;
 >>>>>>> main
+>>>>>>> main
         }
 
 
@@ -545,6 +555,10 @@ namespace junpro_test_ui
 <<<<<<< HEAD
 
 =======
+<<<<<<< HEAD
+
+=======
+>>>>>>> main
         // Method to notify followers of a new announcement
         private void SendNotificationToFollowers(NpgsqlConnection conn, int pemberiId, int announcementId)
         {
@@ -585,10 +599,62 @@ namespace junpro_test_ui
                 cmd.ExecuteNonQuery();
             }
         }
+<<<<<<< HEAD
+=======
     
+>>>>>>> main
 >>>>>>> main
 
 
+        public List<string> GetAnnouncements()
+        {
+            List<string> announcements = new List<string>();
 
+            try
+            {
+                using (var conn = new NpgsqlConnection(_connectionString))
+                {
+                    conn.Open();
+
+                    using (var cmd = new NpgsqlCommand("SELECT content FROM announcement", conn))
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            announcements.Add(reader.GetString(0));
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error fetching announcements: {ex.Message}");
+            }
+
+            return announcements;
+        }
+
+        public int GetLatestAnnouncementId(int pemberiId)
+        {
+            int latestId = 0;
+
+            using (var conn = new NpgsqlConnection(_connectionString))
+            {
+                conn.Open();
+                string query = "SELECT id FROM public.announcement WHERE pemberi_id = @pemberiId ORDER BY created_at DESC LIMIT 1";
+                using (var cmd = new NpgsqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("pemberiId", pemberiId);
+
+                    var result = cmd.ExecuteScalar();
+                    if (result != null)
+                    {
+                        latestId = Convert.ToInt32(result);
+                    }
+                }
+            }
+
+            return latestId;
+        }
     }
 }

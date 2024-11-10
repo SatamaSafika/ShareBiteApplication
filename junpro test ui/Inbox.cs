@@ -19,7 +19,125 @@ namespace junpro_test_ui
         {
             InitializeComponent();
             _connectionString = ConfigurationManager.ConnectionStrings["MyDatabase"].ConnectionString;
+
+            // Set up ListView properties
+            listViewNotifications.View = View.Details;
+            listViewNotifications.FullRowSelect = true;
+            listViewNotifications.GridLines = true;
+            listViewNotifications.CheckBoxes = true; // Enable checkboxes for multi-selection
+
+            // Add columns to ListView
+            listViewNotifications.Columns.Add("Sender", 100, HorizontalAlignment.Left);
+            listViewNotifications.Columns.Add("Content", 300, HorizontalAlignment.Left);
+            listViewNotifications.Columns.Add("Date/Time", 150, HorizontalAlignment.Left);
+
+
+            LoadNotifications();
         }
+
+        public class NotificationTag
+        {
+            public int Id { get; set; }
+            public string Status { get; set; }
+        }
+
+
+        private void LoadNotifications()
+        {
+            listViewNotifications.Items.Clear();
+            int currentUserId = GetCurrentUserId(); // Get the current logged-in user's ID
+
+            using (var conn = new NpgsqlConnection(_connectionString))
+            {
+                conn.Open();
+                string query = @"
+            SELECT 
+                a.username, 
+                announcement.content, 
+                announcement.created_at, 
+                notifications.status, 
+                notifications.id 
+            FROM notifications
+            INNER JOIN announcement ON notifications.announcement_id = announcement.id
+            INNER JOIN akun a ON announcement.pemberi_id = a.id
+            WHERE notifications.penerima_id = @currentUserId
+            ORDER BY announcement.created_at DESC"; // Filter by current user and sort by date
+
+                using (var cmd = new NpgsqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("currentUserId", currentUserId); // Bind current user ID
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            // Create a new ListViewItem for each notification
+                            var item = new ListViewItem
+                            {
+                                Text = reader["username"].ToString(), // Display username from akun table as the sender
+                                Tag = new NotificationTag
+                                {
+                                    Id = (int)reader["id"],
+                                    Status = reader["status"].ToString()
+                                } // Use NotificationTag to manage Id and Status
+                            };
+
+                            // Add sub-items
+                            item.SubItems.Add(reader["content"].ToString()); // Content
+
+                            // Format Date/Time
+                            DateTime createdAt = (DateTime)reader["created_at"];
+                            string displayDate = createdAt.Date == DateTime.Today
+                                ? createdAt.ToString("hh:mm tt")
+                                : createdAt.ToString("dd MMM yyyy");
+                            item.SubItems.Add(displayDate); // Date/Time
+
+                            // Color based on read/unread status
+                            string status = reader["status"].ToString();
+                            item.BackColor = status == "unread" ? Color.LightYellow : Color.White;
+
+                            item.Checked = false; // Initialize checkboxes as unchecked
+
+                            listViewNotifications.Items.Add(item);
+                        }
+                    }
+                }
+            }
+            UpdateUnreadIndicator();
+        }
+
+
+        // Placeholder for retrieving the current penerima_id
+        private int GetCurrentUserId()
+        {
+            // Retrieve and return the current logged-in user's (penerima) ID
+            // Replace with actual logic as per your application's authentication setup
+            return 2; // Replace this with the actual current user ID
+        }
+
+
+        private void UpdateUnreadIndicator()
+        {
+            // Count unread notifications
+            int unreadCount = 0;
+            foreach (ListViewItem item in listViewNotifications.Items)
+            {
+                dynamic tag = item.Tag;
+                if (tag.Status == "unread")
+                {
+                    unreadCount++;
+                }
+            }
+
+            // Update the Label indicator visibility based on unread count
+            lblNotifUnread.Visible = unreadCount > 0;
+            lblNotifUnread.Text = unreadCount > 0 ? "." : string.Empty; // Display "." if there are unread notifications
+            lblNotifUnread.ForeColor = Color.Red; // Set the color of the label to red
+        }
+
+
+
+
 
         public void SendNotificationToFollowers(int pemberiId, int announcementId)
         {
@@ -87,6 +205,76 @@ namespace junpro_test_ui
 
                 cmd.ExecuteNonQuery();
             }
+        }
+
+        private void btnReadMsg_Click(object sender, EventArgs e)
+        {
+            using (var conn = new NpgsqlConnection(_connectionString))
+            {
+                conn.Open();
+                foreach (ListViewItem item in listViewNotifications.CheckedItems)
+                {
+                    dynamic tag = item.Tag;
+                    if (tag.Status == "unread")
+                    {
+                        var cmd = new NpgsqlCommand("UPDATE notifications SET status = 'read' WHERE id = @id", conn);
+                        cmd.Parameters.AddWithValue("id", tag.Id);
+                        cmd.ExecuteNonQuery();
+
+                        item.BackColor = Color.White; // Change color for read notifications
+                        item.Tag = new { Id = tag.Id, Status = "read" }; // Update Tag to reflect the new status
+                    }
+                }
+            }
+            UpdateUnreadIndicator();
+
+
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            using (var conn = new NpgsqlConnection(_connectionString))
+            {
+                conn.Open();
+                foreach (ListViewItem item in listViewNotifications.CheckedItems)
+                {
+                    dynamic tag = item.Tag;
+                    var cmd = new NpgsqlCommand("DELETE FROM notifications WHERE id = @id", conn);
+                    cmd.Parameters.AddWithValue("id", tag.Id);
+                    cmd.ExecuteNonQuery();
+                    listViewNotifications.Items.Remove(item); // Remove item from ListView
+                }
+            }
+            UpdateUnreadIndicator();
+        }
+
+        private void listViewNotifications_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Inbox_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblNotifUnread_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            login Login = new login();
+            Login.Show();
+            this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            product Product = new product();
+            Product.Show();
+            this.Close();
         }
     }
 }

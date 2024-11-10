@@ -37,6 +37,10 @@
             btnLogout = new Button();
 =======
             button3 = new Button();
+<<<<<<< HEAD
+            button4 = new Button();
+=======
+>>>>>>> main
 >>>>>>> main
             SuspendLayout();
             // 
@@ -51,6 +55,11 @@
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Microsoft Tai Le", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
 <<<<<<< HEAD
+            button1.Location = new Point(33, 181);
+            button1.Name = "button1";
+            button1.Size = new Size(170, 45);
+=======
+<<<<<<< HEAD
             button1.Location = new Point(-9, 232);
             button1.Margin = new Padding(4);
             button1.Name = "button1";
@@ -59,6 +68,7 @@
             button1.Location = new Point(26, 181);
             button1.Name = "button1";
             button1.Size = new Size(160, 45);
+>>>>>>> main
 >>>>>>> main
             button1.TabIndex = 0;
             button1.TextAlign = ContentAlignment.MiddleLeft;
@@ -73,12 +83,16 @@
             productPemberi.FlatAppearance.MouseOverBackColor = Color.Transparent;
             productPemberi.FlatStyle = FlatStyle.Flat;
 <<<<<<< HEAD
+            productPemberi.Location = new Point(44, 91);
+=======
+<<<<<<< HEAD
             productPemberi.Location = new Point(1, 135);
             productPemberi.Margin = new Padding(4);
             productPemberi.Name = "productPemberi";
             productPemberi.Size = new Size(239, 40);
 =======
             productPemberi.Location = new Point(10, 102);
+>>>>>>> main
             productPemberi.Name = "productPemberi";
             productPemberi.Size = new Size(159, 31);
 >>>>>>> main
@@ -97,7 +111,11 @@
             btngeneralSetting.Location = new Point(12, 885);
 =======
             btngeneralSetting.Location = new Point(16, 691);
+<<<<<<< HEAD
+            btngeneralSetting.Margin = new Padding(2);
+=======
             btngeneralSetting.Margin = new Padding(2, 2, 2, 2);
+>>>>>>> main
 >>>>>>> main
             btngeneralSetting.Name = "btngeneralSetting";
             btngeneralSetting.Size = new Size(153, 36);
@@ -114,10 +132,15 @@
             button2.FlatAppearance.MouseOverBackColor = Color.Transparent;
             button2.FlatStyle = FlatStyle.Flat;
 <<<<<<< HEAD
+            button2.Location = new Point(33, 142);
+            button2.Margin = new Padding(2);
+=======
+<<<<<<< HEAD
             button2.Location = new Point(12, 182);
 =======
             button2.Location = new Point(16, 142);
             button2.Margin = new Padding(2, 2, 2, 2);
+>>>>>>> main
 >>>>>>> main
             button2.Name = "button2";
             button2.Size = new Size(170, 34);
@@ -156,16 +179,35 @@
             button3.Click += button3_Click;
 >>>>>>> main
             // 
+            // button4
+            // 
+            button4.BackColor = Color.Transparent;
+            button4.FlatAppearance.BorderSize = 0;
+            button4.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            button4.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            button4.FlatStyle = FlatStyle.Flat;
+            button4.Location = new Point(28, 937);
+            button4.Name = "button4";
+            button4.Size = new Size(175, 34);
+            button4.TabIndex = 5;
+            button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click;
+            // 
             // dashboard
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
 <<<<<<< HEAD
+            ClientSize = new Size(1418, 1050);
+            Controls.Add(button4);
+=======
+<<<<<<< HEAD
             ClientSize = new Size(1443, 1035);
             Controls.Add(btnLogout);
 =======
             ClientSize = new Size(1110, 809);
+>>>>>>> main
             Controls.Add(button3);
 >>>>>>> main
             Controls.Add(button2);
@@ -188,6 +230,10 @@
         private Button btnLogout;
 =======
         private Button button3;
+<<<<<<< HEAD
+        private Button button4;
+=======
+>>>>>>> main
 >>>>>>> main
     }
 }
